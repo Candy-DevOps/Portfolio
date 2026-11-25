@@ -3,11 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rose Candy Esinam Nartey | DevOps Engineer & IT Portfolio</title>
+  <meta name="description" content="Rose Candy Esinam Nartey — DevOps Engineer specializing in cloud infrastructure, CI/CD automation, and platform reliability. A portfolio integrating technical practice with Christ-centered stewardship." />
+  <meta name="theme-color" content="#0f172a" />
+  <title>Rose Candy Esinam Nartey | DevOps Engineer &amp; IT Portfolio</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
+    /* ---------- Design tokens ---------- */
     :root {
       --primary: #0284c7;
       --primary-dark: #0369a1;
@@ -17,17 +22,59 @@
       --text-muted: #cbd5e1;
       --border: #334155;
       --accent: #38bdf8;
-      --warning: #ef4444;
-      --success: #10b981;
+      --warning: #f87171;
+      --success: #34d399;
     }
+
+    /* ---------- Reset ---------- */
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 6rem; /* keeps anchored headings clear of the sticky header */
+    }
+
     body {
       font-family: 'Inter', sans-serif;
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.6;
     }
+
+    /* ---------- Accessibility utilities ---------- */
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      z-index: 200;
+      background: var(--primary);
+      color: #fff;
+      padding: 0.75rem 1.25rem;
+      border-radius: 0 0 8px 0;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .skip-link:focus { left: 0; }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    /* ---------- Header & navigation ---------- */
     header {
       position: sticky;
       top: 0;
@@ -36,6 +83,7 @@
       border-bottom: 1px solid var(--border);
       z-index: 100;
     }
+
     nav {
       max-width: 1100px;
       margin: 0 auto;
@@ -46,33 +94,77 @@
       flex-wrap: wrap;
       gap: 1rem;
     }
-    .brand { font-size: 1.25rem; font-weight: 700; color: #fff; }
+
+    .brand {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+    }
     .brand span { color: var(--accent); }
+
     .nav-links {
       display: flex;
       list-style: none;
       gap: 1.2rem;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      white-space: nowrap;
-      padding-bottom: 0.2rem;
-      -webkit-overflow-scrolling: touch;
+      flex-wrap: wrap;
+      min-width: 0;
+      margin: 0;
+      padding: 0;
     }
-    .nav-links::-webkit-scrollbar { display: none; }
-    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+      padding: 0.15rem 0;
+      border-bottom: 2px solid transparent;
+    }
     .nav-links a:hover { color: var(--accent); }
-    
-    .container { max-width: 1100px; margin: 0 auto; padding: 3rem 1.5rem; }
-    section { margin-bottom: 4rem; scroll-margin-top: 5rem; }
-    h2 { font-size: 1.8rem; margin-bottom: 1.5rem; border-left: 4px solid var(--accent); padding-left: 0.75rem; color: #fff; }
-    
-    /* Hero Section */
+    .nav-links a[aria-current="location"] {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    /* ---------- Layout ---------- */
+    main { display: block; }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    section { margin-bottom: 4rem; }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid var(--accent);
+      padding-left: 0.75rem;
+      color: #fff;
+      line-height: 1.3;
+    }
+
+    /* ---------- Hero ---------- */
     .hero {
       padding: 3rem 0 2rem;
       border-bottom: 1px solid var(--border);
     }
-    .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; color: #fff; }
-    .hero .subtitle { font-size: 1.2rem; color: var(--accent); margin-bottom: 1rem; font-weight: 500; }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .hero .subtitle {
+      font-size: 1.2rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
     .mission-statement {
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -82,7 +174,14 @@
       color: #f1f5f9;
       margin: 1.5rem 0;
     }
-    .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+
+    /* ---------- Buttons ---------- */
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
     .btn {
       padding: 0.6rem 1.2rem;
       border-radius: 6px;
@@ -90,14 +189,19 @@
       font-weight: 600;
       font-size: 0.9rem;
       display: inline-block;
+      border: 1px solid transparent;
       transition: background-color 0.2s, border-color 0.2s;
     }
     .btn-primary { background: var(--primary); color: #fff; }
     .btn-primary:hover { background: var(--primary-dark); }
-    .btn-secondary { border: 1px solid var(--border); color: var(--text); background: var(--card-bg); }
+    .btn-secondary {
+      border-color: var(--border);
+      color: var(--text);
+      background: var(--card-bg);
+    }
     .btn-secondary:hover { border-color: var(--accent); }
 
-    /* Visual Component */
+    /* ---------- Visual / diagram container ---------- */
     .visual-wrapper {
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -111,7 +215,7 @@
       height: auto;
       border-radius: 8px;
       border: 1px solid var(--border);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     }
     .visual-caption {
       font-size: 0.85rem;
@@ -120,8 +224,14 @@
       font-style: italic;
     }
 
-    /* Cards & Layout */
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+    /* ---------- Grids ---------- */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+      gap: 1.5rem;
+    }
+
+    /* ---------- Cards ---------- */
     .card {
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -137,29 +247,44 @@
       border-color: var(--accent);
       box-shadow: 0 8px 24px rgba(56, 189, 248, 0.15);
     }
-    .card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: #fff; }
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+      line-height: 1.35;
+    }
+
+    /* ---------- Tag lists ---------- */
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      list-style: none;
+      margin: 0.25rem 0 0.5rem;
+      padding: 0;
+    }
     .tag {
-      display: inline-block;
       background: rgba(56, 189, 248, 0.1);
       color: var(--accent);
       padding: 0.2rem 0.6rem;
       border-radius: 4px;
       font-size: 0.75rem;
       font-weight: 600;
-      margin: 0.2rem 0.2rem 0.5rem 0;
     }
+
+    /* ---------- Reflection callouts ---------- */
     .reflection-box {
       margin-top: 1rem;
       padding: 0.8rem;
-      background: rgba(15, 23, 42, 0.7);
+      background: #16233a;
       border-left: 3px solid var(--accent);
       border-radius: 4px;
-      font-size: 0.85rem;
+      font-size: 0.875rem;
       color: #f1f5f9;
     }
     .reflection-box strong { color: var(--accent); }
 
-    /* Lists */
+    /* ---------- List wrappers ---------- */
     .list-wrapper {
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -175,6 +300,7 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      line-height: 1.35;
     }
     .warning-icon { color: var(--warning); }
     .realignment-icon { color: var(--success); }
@@ -185,39 +311,135 @@
     }
     .bullets li { margin-bottom: 0.5rem; }
 
-    /* Skills Grid */
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
-    .skill-cat { background: var(--card-bg); border: 1px solid var(--border); padding: 1.2rem; border-radius: 8px; }
-    .skill-cat h4 { color: var(--accent); margin-bottom: 0.5rem; }
-    .skill-cat ul { list-style: none; font-size: 0.9rem; color: var(--text-muted); }
+    /* ---------- Skills ---------- */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+      gap: 1rem;
+    }
+    .skill-cat {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 1.2rem;
+      border-radius: 8px;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .skill-cat:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      box-shadow: 0 6px 18px rgba(56, 189, 248, 0.12);
+    }
+    .skill-cat h3 {
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+    .skill-cat ul {
+      list-style: none;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
     .skill-cat li { margin-bottom: 0.3rem; }
 
-    /* Timeline */
-    .timeline-item { margin-bottom: 2rem; border-left: 2px solid var(--border); padding-left: 1.5rem; position: relative; }
+    /* ---------- Timeline ---------- */
+    .timeline-item {
+      margin-bottom: 2rem;
+      border-left: 2px solid var(--border);
+      padding-left: 1.5rem;
+      position: relative;
+    }
     .timeline-item::before {
       content: '';
       position: absolute;
       left: -6px;
-      top: 5px;
+      top: 6px;
       width: 10px;
       height: 10px;
       border-radius: 50%;
       background: var(--accent);
     }
-    .timeline-item h3 { font-size: 1.15rem; color: #fff; }
-    .timeline-meta { font-size: 0.85rem; color: var(--accent); margin-bottom: 0.5rem; }
-    .timeline-item ul { margin-left: 1.2rem; color: var(--text-muted); font-size: 0.9rem; }
+    .timeline-item h3 {
+      font-size: 1.15rem;
+      color: #fff;
+    }
+    .timeline-meta {
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .timeline-item ul {
+      margin-left: 1.2rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
     .timeline-item li { margin-bottom: 0.4rem; }
 
-    footer { text-align: center; padding: 2rem 1.5rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem; }
+    /* ---------- Footer ---------- */
+    footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* ---------- Responsive: mobile navigation ---------- */
+    @media (max-width: 767px) {
+      html { scroll-padding-top: 9rem; }
+
+      .nav-links {
+        flex: 1 1 100%;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 0.25rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .nav-links::-webkit-scrollbar { display: none; }
+
+      /* Discoverability cue: fades the right edge only when there is overflow
+         and the user has not yet scrolled to the end. */
+      .nav-links.is-scrollable:not(.at-end) {
+        mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent);
+        -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent);
+      }
+
+      .hero h1 { font-size: 1.9rem; }
+      .hero .subtitle { font-size: 1.05rem; }
+      h2 { font-size: 1.5rem; }
+      .container { padding: 2rem 1.25rem; }
+    }
+
+    /* Tablet: compress nav labels before allowing a wrap */
+    @media (min-width: 768px) and (max-width: 1099px) {
+      .nav-links { gap: 0.9rem; }
+      .nav-links a { font-size: 0.82rem; }
+    }
+
+    /* ---------- Reduced motion ---------- */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        transition-duration: 0.001ms !important;
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+      }
+      .card:hover,
+      .skill-cat:hover { transform: none; }
+      header { backdrop-filter: none; background: var(--bg); }
+    }
   </style>
 </head>
 <body>
 
+  <a class="skip-link" href="#main">Skip to main content</a>
+
   <header>
     <nav aria-label="Main Navigation">
-      <div class="brand">Rose Candy <span>Nartey</span></div>
-      <ul class="nav-links">
+      <a class="brand" href="#about">Rose Candy <span>Nartey</span></a>
+
+      <ul class="nav-links" role="list">
         <li><a href="#about">About</a></li>
         <li><a href="#spiritual">Spiritual Progression</a></li>
         <li><a href="#realignment">Realignment Tracker</a></li>
@@ -230,258 +452,456 @@
     </nav>
   </header>
 
-  <div class="container">
-    <!-- About Section -->
-    <section id="about" class="hero">
-      <h1>Rose Candy Esinam Nartey</h1>
-      <div class="subtitle">DevOps Engineer | Cloud Infrastructure & Platform Reliability</div>
-      <p style="color: var(--text-muted); max-width: 800px;">
-        DevOps Engineer with 5+ years of experience across FinTech and financial-services platforms, including hands-on delivery at Hubtel Limited (Bank of Ghana-regulated). AWS Certified Cloud Practitioner pursuing a Bachelor of Applied Science in IT at Ensign College.
-      </p>
-      <div class="mission-statement">
-        "I am a DevOps engineer who provisions reliable infrastructure and strives to be a faithful steward of the systems and people I serve—integrating technical excellence, deliberate architecture, and Christ-centered integrity."
-      </div>
-      <div class="btn-group">
-        <a href="https://github.com/Candy-DevOps" class="btn btn-primary" target="_blank" rel="noopener">GitHub Profile</a>
-        <a href="https://linkedin.com/in/candyesinam" class="btn btn-secondary" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="#contact" class="btn btn-secondary">Get in Touch</a>
-      </div>
-    </section>
+  <main id="main">
+    <div class="container">
 
-    <!-- Spiritual Progression Section -->
-    <section id="spiritual">
-      <h2>Spiritual Progression & Integration Map</h2>
-      <div class="list-wrapper" style="margin-bottom: 2rem;">
-        <h3 style="color: #fff; margin-bottom: 0.5rem;">"The Yoke and the Pipeline": A Mental Map of Integration</h3>
-        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">
-          My reflective journey centered on a single image that kept returning to me during quiet meditation: <strong>the yoke</strong>. Drawing from Sister Alynda Kusch’s prompt about beasts of burden placed together in hoops of a yoke to share and carry a heavy load, I realized stepping into the Savior's yoke at baptism and endowment is not a restraint—it is a sharing of load ("I Tell You These Things That Ye May Understand," 2023). That realization forms the heart of my mental map, which intertwines identity, spiritual principles, and engineering practices.
+      <!-- ================= ABOUT / HERO ================= -->
+      <section id="about" class="hero">
+        <h1>Rose Candy Esinam Nartey</h1>
+        <p class="subtitle">DevOps Engineer | Cloud Infrastructure &amp; Platform Reliability</p>
+
+        <p style="color: var(--text-muted); max-width: 800px;">
+          DevOps Engineer with 5+ years of experience across FinTech and financial-services platforms,
+          including hands-on delivery at Hubtel Limited (Bank of Ghana-regulated). AWS Certified Cloud
+          Practitioner pursuing a Bachelor of Applied Science in IT at Ensign College.
         </p>
-        <p style="color: var(--text-muted); font-size: 0.95rem;">
-          My faith does not sit alongside my engineering like a separate app running in the background—it directly shapes technical decisions. When I write Terraform, I am practicing <strong>Purposeful Architecture (Moses 3:5)</strong>, designing before provisioning. When maintaining 99.99% system uptime, I exercise <strong>Operational Diligence (D&C 64:33–34)</strong>, recognizing that small, consistent tasks lay a great foundation. And as I monitor infrastructure and database access, I operate in <strong>Consecrated Stewardship (Luke 16:10)</strong>, with root-level access functioning as an ethical boundary.
+
+        <p class="mission-statement">
+          "I am a DevOps engineer who provisions reliable infrastructure and strives to be a faithful
+          steward of the systems and people I serve&mdash;integrating technical excellence, deliberate
+          architecture, and Christ-centered integrity."
         </p>
-      </div>
 
-      <div class="visual-wrapper">
-        <img src="image_4.png" alt="The Yoke and The Pipeline Visual Integration Diagram featuring three concentric circles with Christ at the center, surrounded by guiding principles and outer DevOps technical tools" class="visual-img" aria-describedby="visual-desc">
-        <div id="visual-desc" class="visual-caption">
-          The Yoke & The Pipeline Visual Integration Map—incorporating three concentric rings with Christ at the center and bidirectional interaction, reflecting character, guiding principles, and operational DevOps practice (image_4.png).
+        <div class="btn-group">
+          <a href="https://github.com/Candy-DevOps" class="btn btn-primary"
+             target="_blank" rel="noopener noreferrer">
+            GitHub Profile<span class="visually-hidden"> (opens in a new tab)</span>
+          </a>
+          <a href="https://linkedin.com/in/candyesinam" class="btn btn-secondary"
+             target="_blank" rel="noopener noreferrer">
+            LinkedIn<span class="visually-hidden"> (opens in a new tab)</span>
+          </a>
+          <a href="#contact" class="btn btn-secondary">Get in Touch</a>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Warning Signs and Realignment Tracker -->
-    <section id="realignment">
-      <h2>Warning Signs and Realignment</h2>
-      <div class="grid">
-        <div class="list-wrapper">
-          <div class="list-title"><span class="warning-icon">⚠️</span> Spiritual & Professional Warning Signs</div>
-          <ul class="bullets">
-            <li><strong>Loss of Purpose:</strong> Viewing technical tasks as mere checklists rather than a means of serving people, resulting in an inward, disconnected mindset.</li>
-            <li><strong>Isolated Practice:</strong> Neglecting the "Yoke" of collaboration, attempting to carry heavy system deployments alone without counselor feedback.</li>
-            <li><strong>Spiritual Drifts:</strong> Skipping quiet moments of reflection, causing technical delivery speeds to overshadow internal ethical boundaries.</li>
-            <li><strong>Reactionary Panic:</strong> Responding to system outages or code failures with frustration or blame instead of relying on diligent, patient troubleshooting.</li>
-          </ul>
-        </div>
+      <!-- ================= SPIRITUAL PROGRESSION ================= -->
+      <section id="spiritual">
+        <h2>Spiritual Progression &amp; Integration Map</h2>
 
-        <div class="list-wrapper">
-          <div class="list-title"><span class="realignment-icon">🔄</span> Realignment & Anchor Protocols</div>
-          <ul class="bullets">
-            <li><strong>Anchor in Christ:</strong> Recalibrate identity daily as a child of God and disciple of Christ, ensuring no professional label replaces core character.</li>
-            <li><strong>Slow Down for Reflection:</strong> Integrate quiet times of meditation and temple visits to evaluate whether outer practices match inner covenants.</li>
-            <li><strong>Evaluate Stewardship:</strong> Review system telemetry, database protection practices, and pipelines with dual-review transparency.</li>
-            <li><strong>Co-create in Counsel:</strong> Actively communicate and share engineering burdens with mentors, peers, and team members rather than working in isolation.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Guiding Principles Section -->
-    <section id="principles">
-      <h2>Foundational Guiding Principles</h2>
-      <div class="grid">
-        <div class="card">
-          <div>
-            <h3>1. Purposeful Architecture</h3>
-            <span class="tag">Moses 3:5</span>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
-              <strong>Spiritual Creation Precedes Physical Creation:</strong> In enterprise DevOps, infrastructure is never provisioned haphazardly. Blueprinting architecture, security policies, and Terraform IaC definitions prior to deployment mirrors the divine pattern of intentional design.
-            </p>
-          </div>
-          <div class="reflection-box">
-            <strong>Key Anchor:</strong> Upfront design prevents system downtime, technical debt, and security drift.
-          </div>
+        <div class="list-wrapper" style="margin-bottom: 2rem;">
+          <h3 style="color: #fff; margin-bottom: 0.5rem;">
+            "The Yoke and the Pipeline": A Mental Map of Integration
+          </h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">
+            My reflective journey centered on a single image that kept returning to me during quiet
+            meditation: <strong>the yoke</strong>. Drawing from Sister Alynda Kusch&rsquo;s prompt about
+            beasts of burden placed together in hoops of a yoke to share and carry a heavy load, I
+            realized stepping into the Savior's yoke at baptism and endowment is not a restraint&mdash;it
+            is a sharing of load ("I Tell You These Things That Ye May Understand," 2023). That
+            realization forms the heart of my mental map, which intertwines identity, spiritual
+            principles, and engineering practices.
+          </p>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">
+            My faith does not sit alongside my engineering like a separate app running in the
+            background&mdash;it directly shapes technical decisions. When I write Terraform, I am
+            practicing <strong>Purposeful Architecture (Moses 3:5)</strong>, designing before
+            provisioning. When maintaining 99.99% system uptime, I exercise
+            <strong>Operational Diligence (D&amp;C 64:33&ndash;34)</strong>, recognizing that small,
+            consistent tasks lay a great foundation. And as I monitor infrastructure and database
+            access, I operate in <strong>Consecrated Stewardship (Luke 16:10)</strong>, with root-level
+            access functioning as an ethical boundary.
+          </p>
         </div>
 
-        <div class="card">
-          <div>
-            <h3>2. Operational Diligence</h3>
-            <span class="tag">D&C 64:33–34</span>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
-              <strong>Great Things Proceed from Small Things:</strong> System stability and 99.99% platform uptime are built on small, disciplined daily habits—granular test suites, version-controlled commits, and proactive monitoring.
-            </p>
+        <div class="visual-wrapper">
+          <img src="image_4.png"
+               alt="The Yoke and the Pipeline diagram"
+               class="visual-img"
+               aria-describedby="visual-desc"
+               loading="lazy"
+               decoding="async" />
+          <p id="visual-desc" class="visual-caption">
+            Three concentric rings with Christ at the center, surrounded by guiding principles and outer
+            DevOps technical tools. The arrows run in both directions, showing how character informs
+            practice and practice tests character.
+          </p>
+        </div>
+      </section>
+
+      <!-- ================= WARNING SIGNS / REALIGNMENT ================= -->
+      <section id="realignment">
+        <h2>Warning Signs and Realignment</h2>
+
+        <div class="grid">
+          <div class="list-wrapper">
+            <h3 class="list-title">
+              <span class="warning-icon" aria-hidden="true">&#9888;&#65039;</span>
+              Spiritual &amp; Professional Warning Signs
+            </h3>
+            <ul class="bullets">
+              <li><strong>Loss of Purpose:</strong> Viewing technical tasks as mere checklists rather than a means of serving people, resulting in an inward, disconnected mindset.</li>
+              <li><strong>Isolated Practice:</strong> Neglecting the "Yoke" of collaboration, attempting to carry heavy system deployments alone without counselor feedback.</li>
+              <li><strong>Spiritual Drifts:</strong> Skipping quiet moments of reflection, causing technical delivery speeds to overshadow internal ethical boundaries.</li>
+              <li><strong>Reactionary Panic:</strong> Responding to system outages or code failures with frustration or blame instead of relying on diligent, patient troubleshooting.</li>
+            </ul>
           </div>
-          <div class="reflection-box">
-            <strong>Key Anchor:</strong> Patient, incremental effort creates resilient cloud architectures and sustainable mastery.
+
+          <div class="list-wrapper">
+            <h3 class="list-title">
+              <span class="realignment-icon" aria-hidden="true">&#128260;</span>
+              Realignment &amp; Anchor Protocols
+            </h3>
+            <ul class="bullets">
+              <li><strong>Anchor in Christ:</strong> Recalibrate identity daily as a child of God and disciple of Christ, ensuring no professional label replaces core character.</li>
+              <li><strong>Slow Down for Reflection:</strong> Integrate quiet times of meditation and temple visits to evaluate whether outer practices match inner covenants.</li>
+              <li><strong>Evaluate Stewardship:</strong> Review system telemetry, database protection practices, and pipelines with dual-review transparency.</li>
+              <li><strong>Co-create in Counsel:</strong> Actively communicate and share engineering burdens with mentors, peers, and team members rather than working in isolation.</li>
+            </ul>
           </div>
         </div>
+      </section>
 
-        <div class="card">
-          <div>
-            <h3>3. Consecrated Stewardship</h3>
-            <span class="tag">Luke 16:10 & 3 Nephi 13:22</span>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
-              <strong>Integrity in Reliability:</strong> Managing production access and payment pipelines is a sacred stewardship. Keeping my eye single to ethical service ensures user data privacy, platform security, and cross-functional transparency.
-            </p>
+      <!-- ================= GUIDING PRINCIPLES ================= -->
+      <section id="principles">
+        <h2>Foundational Guiding Principles</h2>
+
+        <div class="grid">
+          <div class="card">
+            <div>
+              <h3>1. Purposeful Architecture</h3>
+              <ul class="tag-list" role="list">
+                <li class="tag">Moses 3:5</li>
+              </ul>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
+                <strong>Spiritual Creation Precedes Physical Creation:</strong> In enterprise DevOps,
+                infrastructure is never provisioned haphazardly. Blueprinting architecture, security
+                policies, and Terraform IaC definitions prior to deployment mirrors the divine pattern
+                of intentional design.
+              </p>
+            </div>
+            <div class="reflection-box">
+              <strong>Key Anchor:</strong> Upfront design prevents system downtime, technical debt,
+              and security drift.
+            </div>
           </div>
-          <div class="reflection-box">
-            <strong>Key Anchor:</strong> Faithfulness in the smallest automation script honors both team and end-users.
+
+          <div class="card">
+            <div>
+              <h3>2. Operational Diligence</h3>
+              <ul class="tag-list" role="list">
+                <li class="tag">D&amp;C 64:33&ndash;34</li>
+              </ul>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
+                <strong>Great Things Proceed from Small Things:</strong> System stability and 99.99%
+                platform uptime are built on small, disciplined daily habits&mdash;granular test suites,
+                version-controlled commits, and proactive monitoring.
+              </p>
+            </div>
+            <div class="reflection-box">
+              <strong>Key Anchor:</strong> Patient, incremental effort creates resilient cloud
+              architectures and sustainable mastery.
+            </div>
+          </div>
+
+          <div class="card">
+            <div>
+              <h3>3. Consecrated Stewardship</h3>
+              <ul class="tag-list" role="list">
+                <li class="tag">Luke 16:10</li>
+                <li class="tag">3 Nephi 13:22</li>
+              </ul>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
+                <strong>Integrity in Reliability:</strong> Managing production access and payment
+                pipelines is a sacred stewardship. Keeping my eye single to ethical service ensures
+                user data privacy, platform security, and cross-functional transparency.
+              </p>
+            </div>
+            <div class="reflection-box">
+              <strong>Key Anchor:</strong> Faithfulness in the smallest automation script honors both
+              team and end-users.
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Integrated Projects Section -->
-    <section id="projects">
-      <h2>Three Integrated Work Projects</h2>
-      <div class="grid">
-        <div class="card">
-          <div>
-            <h3>1. Bank-Grade CI/CD Release Pipeline & DevSecOps Automation</h3>
-            <span class="tag">Azure DevOps</span>
-            <span class="tag">GitHub Actions</span>
-            <span class="tag">Docker</span>
-            <span class="tag">OIDC / Key Vault</span>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
-              Engineered end-to-end automated delivery pipelines for high-volume financial services at Hubtel Limited. Integrated static container security scanning (Trivy) and Managed Identity authentication via OIDC, reducing deployment cycles by 30% while preserving strict regulatory compliance.
-            </p>
+      <!-- ================= PROJECTS ================= -->
+      <section id="projects">
+        <h2>Three Integrated Work Projects</h2>
+
+        <div class="grid">
+
+          <div class="card">
+            <div>
+              <h3>1. CI/CD Release Pipeline &amp; DevSecOps Automation</h3>
+              <ul class="tag-list" role="list">
+                <li class="tag">Azure DevOps</li>
+                <li class="tag">GitHub Actions</li>
+                <li class="tag">Docker</li>
+                <li class="tag">OIDC / Key Vault</li>
+              </ul>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
+                Contributed to end-to-end automated delivery pipelines for high-volume financial
+                services at Hubtel Limited. Integrated static container security scanning (Trivy) and
+                Managed Identity authentication via OIDC, reducing deployment cycles by 30% while
+                preserving strict regulatory compliance.
+              </p>
+              <p style="font-size: 0.85rem; margin-top: 0.75rem;">
+                <a href="https://github.com/Candy-DevOps/portfolio"
+                   style="color: var(--accent);"
+                   target="_blank" rel="noopener noreferrer">
+                  View the code<span class="visually-hidden"> for the CI/CD pipeline project (opens in a new tab)</span>
+                </a>
+              </p>
+            </div>
+            <div class="reflection-box">
+              <strong>Spiritual &amp; Ethical Reflection:</strong> Embodiment of
+              <em>Operational Diligence</em> (D&amp;C 64:33&ndash;34). Automating security scanning and
+              secret externalization acts as an ethical guardrail, protecting end-users' financial
+              transactions from deployment human error.
+            </div>
           </div>
-          <div class="reflection-box">
-            <strong>Spiritual & Ethical Reflection:</strong> Embodiment of <em>Operational Diligence</em> (D&C 64:33–34). Automating security scanning and secret externalization acts as an ethical guardrail, protecting end-users' financial transactions from deployment human error.
+
+          <div class="card">
+            <div>
+              <h3>2. Multi-Tier Cloud Infrastructure as Code (IaC)</h3>
+              <ul class="tag-list" role="list">
+                <li class="tag">Terraform</li>
+                <li class="tag">AWS VPC</li>
+                <li class="tag">EC2</li>
+                <li class="tag">RDS</li>
+                <li class="tag">S3</li>
+                <li class="tag">Ansible</li>
+              </ul>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
+                Architected reproducible, highly available multi-tier cloud infrastructure on AWS using
+                modular Terraform scripts. Established remote S3 backend state storage with SSE-KMS
+                encryption, versioning, and DynamoDB state locking, preventing configuration drift and
+                securing environments to CIS standards.
+              </p>
+              <p style="font-size: 0.85rem; margin-top: 0.75rem;">
+                <a href="https://github.com/Candy-DevOps/portfolio"
+                   style="color: var(--accent);"
+                   target="_blank" rel="noopener noreferrer">
+                  View the code<span class="visually-hidden"> for the Terraform project (opens in a new tab)</span>
+                </a>
+              </p>
+            </div>
+            <div class="reflection-box">
+              <strong>Spiritual &amp; Ethical Reflection:</strong> Reflects
+              <em>Purposeful Architecture</em> (Moses 3:5). Blueprinting system topologies in code prior
+              to physical provisioning enforces cost governance, intentional security design, and
+              orderly execution.
+            </div>
+          </div>
+
+          <div class="card">
+            <div>
+              <h3>3. Observability, Metric Telemetry &amp; Incident Response</h3>
+              <ul class="tag-list" role="list">
+                <li class="tag">Prometheus</li>
+                <li class="tag">Grafana</li>
+                <li class="tag">Datadog</li>
+                <li class="tag">CloudWatch</li>
+              </ul>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
+                Implemented comprehensive telemetry dashboards and alert rules across Kubernetes cluster
+                workloads. Cut Mean Time to Resolution (MTTR) by 20% and facilitated proactive root
+                cause analysis (RCA) during platform incidents.
+              </p>
+              <p style="font-size: 0.85rem; margin-top: 0.75rem;">
+                <a href="https://github.com/Candy-DevOps/portfolio"
+                   style="color: var(--accent);"
+                   target="_blank" rel="noopener noreferrer">
+                  View the code<span class="visually-hidden"> for the observability project (opens in a new tab)</span>
+                </a>
+              </p>
+            </div>
+            <div class="reflection-box">
+              <strong>Spiritual &amp; Ethical Reflection:</strong> Demonstrates
+              <em>Consecrated Stewardship</em> (Luke 16:10) and the <em>AMP Model</em>. Metric telemetry
+              brings transparent light into system operations, driving out operational darkness and
+              fostering team autonomy.
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= SKILLS ================= -->
+      <section id="skills">
+        <h2>Technical Competencies &amp; Certifications</h2>
+
+        <div class="skills-grid">
+          <div class="skill-cat">
+            <h3>Cloud &amp; Platforms</h3>
+            <ul>
+              <li>AWS (EC2, S3, RDS, VPC, IAM)</li>
+              <li>Microsoft Azure (AKS, ACR, Key Vault)</li>
+              <li>AWS Certified Cloud Practitioner</li>
+            </ul>
+          </div>
+          <div class="skill-cat">
+            <h3>CI/CD &amp; Containers</h3>
+            <ul>
+              <li>GitHub Actions, Azure DevOps, Jenkins</li>
+              <li>Docker, Kubernetes, Helm, Rancher</li>
+              <li>ArgoCD &amp; GitOps Workflows</li>
+            </ul>
+          </div>
+          <div class="skill-cat">
+            <h3>Infrastructure as Code</h3>
+            <ul>
+              <li>Terraform (State Locking, Modules)</li>
+              <li>Ansible &amp; CloudFormation</li>
+              <li>Linux Administration (Ubuntu, CentOS)</li>
+            </ul>
+          </div>
+          <div class="skill-cat">
+            <h3>DevSecOps &amp; Scripting</h3>
+            <ul>
+              <li>Prometheus, Grafana, Datadog</li>
+              <li>Bash, Python, PowerShell</li>
+              <li>IAM Policies, OIDC, Vulnerability Scanning</li>
+            </ul>
           </div>
         </div>
+      </section>
 
-        <div class="card">
-          <div>
-            <h3>2. Multi-Tier Cloud Infrastructure as Code (IaC)</h3>
-            <span class="tag">Terraform</span>
-            <span class="tag">AWS (VPC, EC2, RDS, S3)</span>
-            <span class="tag">Ansible</span>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
-              Architected reproducible, highly available multi-tier cloud infrastructure on AWS using modular Terraform scripts. Established remote S3 backend state locking with DynamoDB, preventing configuration drift and securing environments to CIS standards.
-            </p>
-          </div>
-          <div class="reflection-box">
-            <strong>Spiritual & Ethical Reflection:</strong> Reflects <em>Purposeful Architecture</em> (Moses 3:5). Blueprinting system topologies in code prior to physical provisioning enforces cost governance, intentional security design, and orderly execution.
-          </div>
-        </div>
+      <!-- ================= EXPERIENCE ================= -->
+      <section id="experience">
+        <h2>Professional Experience</h2>
 
-        <div class="card">
-          <div>
-            <h3>3. Observability, Metric Telemetry & Incident Response Suite</h3>
-            <span class="tag">Prometheus</span>
-            <span class="tag">Grafana</span>
-            <span class="tag">Datadog</span>
-            <span class="tag">AWS CloudWatch</span>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
-              Implemented comprehensive telemetry dashboards and alert rules across Kubernetes cluster workloads. Cut Mean Time to Resolution (MTTR) by 20% and facilitated proactive root cause analysis (RCA) during platform incidents.
-            </p>
-          </div>
-          <div class="reflection-box">
-            <strong>Spiritual & Ethical Reflection:</strong> Demonstrates <em>Consecrated Stewardship</em> (Luke 16:10) and the <em>AMP Model</em>. Metric telemetry brings transparent light into system operations, driving out operational darkness and fostering team autonomy.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Technical Skills Section -->
-    <section id="skills">
-      <h2>Technical Competencies & Certifications</h2>
-      <div class="skills-grid">
-        <div class="skill-cat">
-          <h4>Cloud & Platforms</h4>
+        <div class="timeline-item">
+          <h3>Product Reliability Engineer | Hubtel Limited</h3>
+          <p class="timeline-meta">Oct 2024 &ndash; Present | Bank of Ghana-regulated FinTech</p>
           <ul>
-            <li>AWS (EC2, S3, RDS, VPC, IAM)</li>
-            <li>Microsoft Azure (AKS, ACR, Key Vault)</li>
-            <li>AWS Certified Cloud Practitioner</li>
+            <li>Build and maintain CI/CD pipelines across Azure DevOps and GitHub Actions, cutting release times by 30%.</li>
+            <li>Provision AWS infrastructure using modular Terraform templates with remote S3 backend state management.</li>
+            <li>Orchestrate containerized workloads on Kubernetes, maintaining 99.99% availability for payment platforms.</li>
+            <li>Embed DevSecOps controls (IAM policies, vulnerability scanning) into automated deployment workflows.</li>
           </ul>
         </div>
-        <div class="skill-cat">
-          <h4>CI/CD & Containers</h4>
+
+        <div class="timeline-item">
+          <h3>Performance Monitoring Engineer | Hubtel Limited</h3>
+          <p class="timeline-meta">Feb 2023 &ndash; Sept 2024 | Accra, Ghana</p>
           <ul>
-            <li>GitHub Actions, Azure DevOps, Jenkins</li>
-            <li>Docker, Kubernetes, Helm, Rancher</li>
-            <li>ArgoCD & GitOps Workflows</li>
+            <li>Sustained 99.99%+ platform uptime across core financial services and transaction backends.</li>
+            <li>Conducted systematic root cause analyses (RCA) and developed automated recovery routines, reducing MTTR by 20%.</li>
           </ul>
         </div>
-        <div class="skill-cat">
-          <h4>Infrastructure as Code</h4>
+
+        <div class="timeline-item">
+          <h3>DevOps Engineer (Graduate Trainee) | Jomacs IT Solutions</h3>
+          <p class="timeline-meta">Jan 2020 &ndash; Jan 2023</p>
           <ul>
-            <li>Terraform (State Locking, Modules)</li>
-            <li>Ansible & CloudFormation</li>
-            <li>Linux Administration (Ubuntu, CentOS)</li>
+            <li>Configured containerized deployments with Docker and Kubernetes for microservices.</li>
+            <li>Built CI/CD testing and deployment flows, improving engineering release velocity.</li>
           </ul>
         </div>
-        <div class="skill-cat">
-          <h4>DevSecOps & Scripting</h4>
-          <ul>
-            <li>Prometheus, Grafana, Datadog</li>
-            <li>Bash, Python, PowerShell</li>
-            <li>IAM Policies, OIDC, Vulnerability Scanning</li>
-          </ul>
+      </section>
+
+      <!-- ================= CONTACT ================= -->
+      <section id="contact">
+        <h2>Connect &amp; Mentorship</h2>
+
+        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+          Open to technical collaboration, professional mentorship, and discussing cloud reliability
+          best practices. I usually reply within two business days.
+        </p>
+
+        <div class="btn-group">
+          <a href="mailto:candyesinam@gmail.com" class="btn btn-primary">Email Me</a>
+          <a href="https://linkedin.com/in/candyesinam" class="btn btn-secondary"
+             target="_blank" rel="noopener noreferrer">
+            LinkedIn Profile<span class="visually-hidden"> (opens in a new tab)</span>
+          </a>
+          <a href="https://github.com/Candy-DevOps" class="btn btn-secondary"
+             target="_blank" rel="noopener noreferrer">
+            GitHub Profile<span class="visually-hidden"> (opens in a new tab)</span>
+          </a>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Professional Experience Section -->
-    <section id="experience">
-      <h2>Professional Experience</h2>
-      <div class="timeline-item">
-        <h3>Product Reliability Engineer | Hubtel Limited</h3>
-        <div class="timeline-meta">Oct 2024 – Present | Bank of Ghana-Regulated FinTech</div>
-        <ul>
-          <li>Build and maintain CI/CD pipelines across Azure DevOps and GitHub Actions, cutting release times by 30%.</li>
-          <li>Provision AWS infrastructure using modular Terraform templates with remote S3 backend state management.</li>
-          <li>Orchestrate containerized workloads on Kubernetes, maintaining 99.99% availability for payment platforms.</li>
-          <li>Embed DevSecOps controls (IAM policies, vulnerability scanning) into automated deployment workflows.</li>
-        </ul>
-      </div>
-
-      <div class="timeline-item">
-        <h3>Performance Monitoring Engineer | Hubtel Limited</h3>
-        <div class="timeline-meta">Feb 2023 – Sept 2024 | Accra, Ghana</div>
-        <ul>
-          <li>Sustained 99.99%+ platform uptime across core financial services and transaction backends.</li>
-          <li>Conducted systematic root cause analyses (RCA) and developed automated recovery routines, reducing MTTR by 20%.</li>
-        </ul>
-      </div>
-
-      <div class="timeline-item">
-        <h3>DevOps Engineer (Graduate Trainee) | Jomacs IT Solutions</h3>
-        <div class="timeline-meta">Jan 2020 – Jan 2023</div>
-        <ul>
-          <li>Configured containerized deployments with Docker and Kubernetes for microservices.</li>
-          <li>Built CI/CD testing and deployment flows, improving engineering release velocity.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-      <h2>Connect & Mentorship</h2>
-      <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
-        Open to technical collaboration, professional mentorship, and discussing cloud reliability best practices.
-      </p>
-      <div class="btn-group">
-        <a href="mailto:candyesinam@gmail.com" class="btn btn-primary">Email Me</a>
-        <a href="https://linkedin.com/in/candyesinam" class="btn btn-secondary" target="_blank" rel="noopener">LinkedIn Profile</a>
-        <a href="https://github.com/Candy-DevOps" class="btn btn-secondary" target="_blank" rel="noopener">GitHub Profile</a>
-      </div>
-    </section>
-  </div>
+    </div>
+  </main>
 
   <footer>
     <p>&copy; 2026 Rose Candy Esinam Nartey | Hosted on GitHub Pages | Ensign College BAS in IT</p>
   </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      /* ---------------------------------------------------------------
+         1. Mobile nav: discoverability cue
+         Applies .is-scrollable when the row overflows, and .at-end
+         once the user has scrolled to the final link. The CSS mask
+         only engages on mobile viewports.
+      --------------------------------------------------------------- */
+      var navList = document.querySelector('.nav-links');
+
+      function updateNavFade() {
+        if (!navList) return;
+
+        var isMobile = window.matchMedia('(max-width: 767px)').matches;
+        if (!isMobile) {
+          navList.classList.remove('is-scrollable', 'at-end');
+          return;
+        }
+
+        var overflow = navList.scrollWidth > navList.clientWidth + 1;
+        var atEnd = navList.scrollLeft + navList.clientWidth >= navList.scrollWidth - 1;
+
+        navList.classList.toggle('is-scrollable', overflow);
+        navList.classList.toggle('at-end', atEnd);
+      }
+
+      if (navList) {
+        navList.addEventListener('scroll', updateNavFade, { passive: true });
+      }
+      window.addEventListener('resize', updateNavFade);
+      window.addEventListener('load', updateNavFade);
+      updateNavFade();
+
+      /* ---------------------------------------------------------------
+         2. Scroll spy: marks the active section with aria-current
+         so keyboard and screen-reader users know where they are.
+      --------------------------------------------------------------- */
+      var sections = Array.prototype.slice.call(
+        document.querySelectorAll('main section[id]')
+      );
+      var navLinks = navList
+        ? Array.prototype.slice.call(navList.querySelectorAll('a'))
+        : [];
+
+      function markCurrentSection() {
+        if (!sections.length || !navLinks.length) return;
+
+        var y = window.scrollY + 140;
+        var currentId = sections[0].id;
+
+        sections.forEach(function (section) {
+          if (section.offsetTop <= y) currentId = section.id;
+        });
+
+        navLinks.forEach(function (link) {
+          if (link.getAttribute('href') === '#' + currentId) {
+            link.setAttribute('aria-current', 'location');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', markCurrentSection, { passive: true });
+      window.addEventListener('resize', markCurrentSection);
+      window.addEventListener('load', markCurrentSection);
+      markCurrentSection();
+    })();
+  </script>
 
 </body>
 </html>
