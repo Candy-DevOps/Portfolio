@@ -17,6 +17,8 @@
       --text-muted: #94a3b8;
       --border: #334155;
       --accent: #38bdf8;
+      --warning: #ef4444;
+      --success: #10b981;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -83,6 +85,29 @@
     .btn-secondary { border: 1px solid var(--border); color: var(--text); background: var(--card-bg); }
     .btn-secondary:hover { border-color: var(--accent); }
 
+    /* Visual Integration Component */
+    .visual-wrapper {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .visual-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+    .visual-caption {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      font-style: italic;
+    }
+
     /* Grid & Cards */
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
     .card {
@@ -115,6 +140,32 @@
       color: #cbd5e1;
     }
     .reflection-box strong { color: var(--accent); }
+
+    /* List Layouts */
+    .list-wrapper {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+    }
+    .list-title {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: #fff;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .warning-icon { color: var(--warning); }
+    .realignment-icon { color: var(--success); }
+    .bullets {
+      margin-left: 1.25rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .bullets li { margin-bottom: 0.5rem; }
 
     /* Skills Grid */
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
@@ -150,11 +201,12 @@
       <div class="brand">Rose Candy <span>Nartey</span></div>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
+        <li><a href="#spiritual">Spiritual Progression</a></li>
+        <li><a href="#realignment">Realignment Tracker</a></li>
         <li><a href="#principles">Guiding Principles</a></li>
         <li><a href="#projects">Integrated Projects</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#experience">Experience</a></li>
-        <li><a href="#reflection">Reflections</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -166,7 +218,7 @@
       <h1>Rose Candy Esinam Nartey</h1>
       <div class="subtitle">DevOps Engineer | Cloud Infrastructure & Reliability</div>
       <p style="color: var(--text-muted); max-width: 800px;">
-        DevOps Engineer with 5+ years of experience across FinTech and financial-services platforms, including hands-on delivery within Hubtel Limited (Bank of Ghana-regulated). AWS Certified Cloud Practitioner pursuing a Bachelor of Applied Science in IT at Ensign College.
+        DevOps Engineer with 5+ years of experience in FinTech and financial-services platforms, including hands-on delivery at Hubtel Limited (regulated by the Bank of Ghana). AWS Certified Cloud Practitioner currently advancing my skills through the Bachelor of Applied Science in IT at Ensign College.
       </p>
       <div class="mission-statement">
         "I am a DevOps engineer who provisions reliable infrastructure and strives to be a faithful steward of the systems and people I serve—integrating technical excellence, deliberate architecture, and Christ-centered integrity."
@@ -175,6 +227,52 @@
         <a href="https://github.com/Candy-DevOps" class="btn btn-primary" target="_blank">GitHub Profile</a>
         <a href="https://linkedin.com/in/candyesinam" class="btn btn-secondary" target="_blank">LinkedIn</a>
         <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+      </div>
+    </section>
+
+    <!-- NEW SECTION: Spiritual Progression (Assignment 5.2 Deliverable) -->
+    <section id="spiritual">
+      <h2>Spiritual Progression & Integration Map</h2>
+      <div class="list-wrapper" style="margin-bottom: 2rem;">
+        <h3 style="color: #fff; margin-bottom: 0.5rem;">"The Yoke and the Pipeline": A Mental Map of Integration</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">
+          My reflective journey this block centered on a single image that kept returning to me during quiet meditation: <strong>the yoke</strong>. Drawing from Sister Alynda Kusch’s prompt about beasts of burden placed together in hoops of a yoke to share and carry a heavy load, I realized stepping into the Savior's yoke at baptism and endowment is not a restraint—it is a sharing of load ("I Tell You These Things That Ye May Understand," 2023). That realization forms the heart of my mental map, which intertwines who I am, what I believe, and how I engineer code.
+        </p>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">
+          My faith does not sit alongside my engineering like a separate app running in the background—it directly shapes specific technical decisions. When I write Terraform, I am practicing <strong>Purposeful Architecture (Moses 3:5)</strong>, designing before provisioning. When debugging or maintaining 99.99% system uptime, I exercise <strong>Operational Diligence (D&C 64:33–34)</strong>, recognizing that small, consistent tasks lay a great foundation. And as I monitor and handle databases, I operate in <strong>Consecrated Stewardship (Luke 16:10)</strong>, with root-level access functioning as an ethical boundary. 
+        </p>
+      </div>
+
+      <!-- Diagram Integration (As requested: Visual mental map with bidirectional interaction) -->
+      <div class="visual-wrapper">
+        <img src="image_4.png" alt="The Yoke and The Pipeline: Faith & DevOps Integration Map" class="visual-img">
+        <div class="visual-caption">The Yoke & The Pipeline Visual Integration Map—incorporating three concentric rings with Christ at the center and bidirectional interaction, reflecting character, guiding principles, and operational DevOps practice (image_4.png).</div>
+      </div>
+    </section>
+
+    <!-- NEW SECTION: Warning Signs and Realignment -->
+    <section id="realignment">
+      <h2>Warning Signs and Realignment</h2>
+      <div class="grid">
+        <div class="list-wrapper">
+          <div class="list-title"><span class="warning-icon">⚠️</span> Spiritual & Professional Warning Signs</div>
+          <ul class="bullets">
+            <li><strong>Loss of Purpose:</strong> Viewing my technical tasks as mere checklists rather than a means of serving people, resulting in an inward, disconnected mindset.</li>
+            <li><strong>Isolated Practice:</strong> Neglecting the "Yoke" of collaboration, attempting to carry heavy system deployments alone without counselor feedback.</li>
+            <li><strong>Spiritual Drifts:</strong> Skipping quiet moments of reflection, causing technical delivery speeds to overshadow my internal ethical boundaries.</li>
+            <li><strong>Reactionary Panic:</strong> Responding to system outages or code failures with frustration or blame instead of relying on diligent, patient troubleshooting.</li>
+          </ul>
+        </div>
+
+        <div class="list-wrapper">
+          <div class="list-title"><span class="realignment-icon">🔄</span> Realignment & Anchor Protocols</div>
+          <ul class="bullets">
+            <li><strong>Anchor in Christ:</strong> Recalibrate my identify daily as a child of God and disciple of Christ, ensuring no professional label replaces my core character.</li>
+            <li><strong>Slow Down for Reflection:</strong> Integrate quiet times of meditation and temple visits to evaluate whether my outer practices match my inner covenants.</li>
+            <li><strong>Evaluate Stewardship:</strong> Review system telemetry, database protection practices, and pipelines with dual-review transparency.</li>
+            <li><strong>Co-create in Counsel:</strong> Actively communicate and share engineering burdens with mentors, peers, and my team rather than going it alone.</li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -345,20 +443,6 @@
           <li>Configured containerized deployments with Docker and Kubernetes for microservices.</li>
           <li>Built CI/CD testing and deployment flows, improving engineering release velocity.</li>
         </ul>
-      </div>
-    </section>
-
-    <!-- Reflective Section -->
-    <section id="reflection">
-      <h2>Spiritual Reflection & Agency in Engineering</h2>
-      <div class="card">
-        <h3 style="color: var(--accent); margin-bottom: 0.8rem;">Personal Agency, Reflection, and Intertwined Growth</h3>
-        <p style="color: var(--text-muted); margin-bottom: 1rem;">
-          Meditating on Doctrine and Covenants 58:26–28 highlights that we should not be compelled in all things, but be anxiously engaged in a good cause of our own free will. In DevOps engineering, agency translates into proactive creation. Rather than waiting for system downtime or security incidents to react, an anxiously engaged engineer provisions self-healing infrastructure, automates security guardrails, and designs resilient CI/CD pipelines.
-        </p>
-        <p style="color: var(--text-muted);">
-          Drawing upon Elder Joseph B. Wirthlin’s message in <em>Come What May, and Love It</em> and President Dieter F. Uchtdorf’s counsel in <em>Be Not Afraid, Only Believe</em>, I recognize that adversity—whether technical outages or team misalignments—offers vital space for refinement. When we maintain an outward mindset and seek light over cynicism, our technical capabilities and spiritual covenants become intertwined like strands in a rope, enabling us to build systems that honor God and serve humanity with unwavering integrity.
-        </p>
       </div>
     </section>
 
