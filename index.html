@@ -14,13 +14,14 @@
       --bg: #0f172a;
       --card-bg: #1e293b;
       --text: #f8fafc;
-      --text-muted: #94a3b8;
+      --text-muted: #cbd5e1;
       --border: #334155;
       --accent: #38bdf8;
       --warning: #ef4444;
       --success: #10b981;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', sans-serif;
       background-color: var(--bg);
@@ -47,20 +48,30 @@
     }
     .brand { font-size: 1.25rem; font-weight: 700; color: #fff; }
     .brand span { color: var(--accent); }
-    .nav-links { display: flex; list-style: none; gap: 1.2rem; flex-wrap: wrap; }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.2rem;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding-bottom: 0.2rem;
+      -webkit-overflow-scrolling: touch;
+    }
+    .nav-links::-webkit-scrollbar { display: none; }
     .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: var(--accent); }
     
     .container { max-width: 1100px; margin: 0 auto; padding: 3rem 1.5rem; }
     section { margin-bottom: 4rem; scroll-margin-top: 5rem; }
-    h2 { font-size: 1.8rem; margin-bottom: 1.5rem; border-left: 4px solid var(--accent); padding-left: 0.75rem; }
+    h2 { font-size: 1.8rem; margin-bottom: 1.5rem; border-left: 4px solid var(--accent); padding-left: 0.75rem; color: #fff; }
     
-    /* Hero */
+    /* Hero Section */
     .hero {
-      padding: 4rem 0 2rem;
+      padding: 3rem 0 2rem;
       border-bottom: 1px solid var(--border);
     }
-    .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; color: #fff; }
     .hero .subtitle { font-size: 1.2rem; color: var(--accent); margin-bottom: 1rem; font-weight: 500; }
     .mission-statement {
       background: var(--card-bg);
@@ -68,7 +79,7 @@
       padding: 1.25rem;
       border-radius: 8px;
       font-style: italic;
-      color: #e2e8f0;
+      color: #f1f5f9;
       margin: 1.5rem 0;
     }
     .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
@@ -79,13 +90,14 @@
       font-weight: 600;
       font-size: 0.9rem;
       display: inline-block;
+      transition: background-color 0.2s, border-color 0.2s;
     }
     .btn-primary { background: var(--primary); color: #fff; }
     .btn-primary:hover { background: var(--primary-dark); }
     .btn-secondary { border: 1px solid var(--border); color: var(--text); background: var(--card-bg); }
     .btn-secondary:hover { border-color: var(--accent); }
 
-    /* Visual Integration Component */
+    /* Visual Component */
     .visual-wrapper {
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -108,7 +120,7 @@
       font-style: italic;
     }
 
-    /* Grid & Cards */
+    /* Cards & Layout */
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
     .card {
       background: var(--card-bg);
@@ -118,6 +130,12 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: 0 8px 24px rgba(56, 189, 248, 0.15);
     }
     .card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: #fff; }
     .tag {
@@ -137,11 +155,11 @@
       border-left: 3px solid var(--accent);
       border-radius: 4px;
       font-size: 0.85rem;
-      color: #cbd5e1;
+      color: #f1f5f9;
     }
     .reflection-box strong { color: var(--accent); }
 
-    /* List Layouts */
+    /* Lists */
     .list-wrapper {
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -174,7 +192,7 @@
     .skill-cat ul { list-style: none; font-size: 0.9rem; color: var(--text-muted); }
     .skill-cat li { margin-bottom: 0.3rem; }
 
-    /* Experience Timeline */
+    /* Timeline */
     .timeline-item { margin-bottom: 2rem; border-left: 2px solid var(--border); padding-left: 1.5rem; position: relative; }
     .timeline-item::before {
       content: '';
@@ -197,7 +215,7 @@
 <body>
 
   <header>
-    <nav>
+    <nav aria-label="Main Navigation">
       <div class="brand">Rose Candy <span>Nartey</span></div>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
@@ -213,53 +231,54 @@
   </header>
 
   <div class="container">
-    <!-- Hero / About Section -->
+    <!-- About Section -->
     <section id="about" class="hero">
       <h1>Rose Candy Esinam Nartey</h1>
-      <div class="subtitle">DevOps Engineer | Cloud Infrastructure & Reliability</div>
+      <div class="subtitle">DevOps Engineer | Cloud Infrastructure & Platform Reliability</div>
       <p style="color: var(--text-muted); max-width: 800px;">
-        DevOps Engineer with 5+ years of experience in FinTech and financial-services platforms, including hands-on delivery at Hubtel Limited (regulated by the Bank of Ghana). AWS Certified Cloud Practitioner currently advancing my skills through the Bachelor of Applied Science in IT at Ensign College.
+        DevOps Engineer with 5+ years of experience across FinTech and financial-services platforms, including hands-on delivery at Hubtel Limited (Bank of Ghana-regulated). AWS Certified Cloud Practitioner pursuing a Bachelor of Applied Science in IT at Ensign College.
       </p>
       <div class="mission-statement">
         "I am a DevOps engineer who provisions reliable infrastructure and strives to be a faithful steward of the systems and people I serve—integrating technical excellence, deliberate architecture, and Christ-centered integrity."
       </div>
       <div class="btn-group">
-        <a href="https://github.com/Candy-DevOps" class="btn btn-primary" target="_blank">GitHub Profile</a>
-        <a href="https://linkedin.com/in/candyesinam" class="btn btn-secondary" target="_blank">LinkedIn</a>
+        <a href="https://github.com/Candy-DevOps" class="btn btn-primary" target="_blank" rel="noopener">GitHub Profile</a>
+        <a href="https://linkedin.com/in/candyesinam" class="btn btn-secondary" target="_blank" rel="noopener">LinkedIn</a>
         <a href="#contact" class="btn btn-secondary">Get in Touch</a>
       </div>
     </section>
 
-    <!-- NEW SECTION: Spiritual Progression (Assignment 5.2 Deliverable) -->
+    <!-- Spiritual Progression Section -->
     <section id="spiritual">
       <h2>Spiritual Progression & Integration Map</h2>
       <div class="list-wrapper" style="margin-bottom: 2rem;">
         <h3 style="color: #fff; margin-bottom: 0.5rem;">"The Yoke and the Pipeline": A Mental Map of Integration</h3>
         <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">
-          My reflective journey this block centered on a single image that kept returning to me during quiet meditation: <strong>the yoke</strong>. Drawing from Sister Alynda Kusch’s prompt about beasts of burden placed together in hoops of a yoke to share and carry a heavy load, I realized stepping into the Savior's yoke at baptism and endowment is not a restraint—it is a sharing of load ("I Tell You These Things That Ye May Understand," 2023). That realization forms the heart of my mental map, which intertwines who I am, what I believe, and how I engineer code.
+          My reflective journey centered on a single image that kept returning to me during quiet meditation: <strong>the yoke</strong>. Drawing from Sister Alynda Kusch’s prompt about beasts of burden placed together in hoops of a yoke to share and carry a heavy load, I realized stepping into the Savior's yoke at baptism and endowment is not a restraint—it is a sharing of load ("I Tell You These Things That Ye May Understand," 2023). That realization forms the heart of my mental map, which intertwines identity, spiritual principles, and engineering practices.
         </p>
         <p style="color: var(--text-muted); font-size: 0.95rem;">
-          My faith does not sit alongside my engineering like a separate app running in the background—it directly shapes specific technical decisions. When I write Terraform, I am practicing <strong>Purposeful Architecture (Moses 3:5)</strong>, designing before provisioning. When debugging or maintaining 99.99% system uptime, I exercise <strong>Operational Diligence (D&C 64:33–34)</strong>, recognizing that small, consistent tasks lay a great foundation. And as I monitor and handle databases, I operate in <strong>Consecrated Stewardship (Luke 16:10)</strong>, with root-level access functioning as an ethical boundary. 
+          My faith does not sit alongside my engineering like a separate app running in the background—it directly shapes technical decisions. When I write Terraform, I am practicing <strong>Purposeful Architecture (Moses 3:5)</strong>, designing before provisioning. When maintaining 99.99% system uptime, I exercise <strong>Operational Diligence (D&C 64:33–34)</strong>, recognizing that small, consistent tasks lay a great foundation. And as I monitor infrastructure and database access, I operate in <strong>Consecrated Stewardship (Luke 16:10)</strong>, with root-level access functioning as an ethical boundary.
         </p>
       </div>
 
-      <!-- Diagram Integration (As requested: Visual mental map with bidirectional interaction) -->
       <div class="visual-wrapper">
-        <img src="image_4.png" alt="The Yoke and The Pipeline: Faith & DevOps Integration Map" class="visual-img">
-        <div class="visual-caption">The Yoke & The Pipeline Visual Integration Map—incorporating three concentric rings with Christ at the center and bidirectional interaction, reflecting character, guiding principles, and operational DevOps practice (image_4.png).</div>
+        <img src="image_4.png" alt="The Yoke and The Pipeline Visual Integration Diagram featuring three concentric circles with Christ at the center, surrounded by guiding principles and outer DevOps technical tools" class="visual-img" aria-describedby="visual-desc">
+        <div id="visual-desc" class="visual-caption">
+          The Yoke & The Pipeline Visual Integration Map—incorporating three concentric rings with Christ at the center and bidirectional interaction, reflecting character, guiding principles, and operational DevOps practice (image_4.png).
+        </div>
       </div>
     </section>
 
-    <!-- NEW SECTION: Warning Signs and Realignment -->
+    <!-- Warning Signs and Realignment Tracker -->
     <section id="realignment">
       <h2>Warning Signs and Realignment</h2>
       <div class="grid">
         <div class="list-wrapper">
           <div class="list-title"><span class="warning-icon">⚠️</span> Spiritual & Professional Warning Signs</div>
           <ul class="bullets">
-            <li><strong>Loss of Purpose:</strong> Viewing my technical tasks as mere checklists rather than a means of serving people, resulting in an inward, disconnected mindset.</li>
+            <li><strong>Loss of Purpose:</strong> Viewing technical tasks as mere checklists rather than a means of serving people, resulting in an inward, disconnected mindset.</li>
             <li><strong>Isolated Practice:</strong> Neglecting the "Yoke" of collaboration, attempting to carry heavy system deployments alone without counselor feedback.</li>
-            <li><strong>Spiritual Drifts:</strong> Skipping quiet moments of reflection, causing technical delivery speeds to overshadow my internal ethical boundaries.</li>
+            <li><strong>Spiritual Drifts:</strong> Skipping quiet moments of reflection, causing technical delivery speeds to overshadow internal ethical boundaries.</li>
             <li><strong>Reactionary Panic:</strong> Responding to system outages or code failures with frustration or blame instead of relying on diligent, patient troubleshooting.</li>
           </ul>
         </div>
@@ -267,10 +286,10 @@
         <div class="list-wrapper">
           <div class="list-title"><span class="realignment-icon">🔄</span> Realignment & Anchor Protocols</div>
           <ul class="bullets">
-            <li><strong>Anchor in Christ:</strong> Recalibrate my identify daily as a child of God and disciple of Christ, ensuring no professional label replaces my core character.</li>
-            <li><strong>Slow Down for Reflection:</strong> Integrate quiet times of meditation and temple visits to evaluate whether my outer practices match my inner covenants.</li>
+            <li><strong>Anchor in Christ:</strong> Recalibrate identity daily as a child of God and disciple of Christ, ensuring no professional label replaces core character.</li>
+            <li><strong>Slow Down for Reflection:</strong> Integrate quiet times of meditation and temple visits to evaluate whether outer practices match inner covenants.</li>
             <li><strong>Evaluate Stewardship:</strong> Review system telemetry, database protection practices, and pipelines with dual-review transparency.</li>
-            <li><strong>Co-create in Counsel:</strong> Actively communicate and share engineering burdens with mentors, peers, and my team rather than going it alone.</li>
+            <li><strong>Co-create in Counsel:</strong> Actively communicate and share engineering burdens with mentors, peers, and team members rather than working in isolation.</li>
           </ul>
         </div>
       </div>
@@ -321,7 +340,7 @@
       </div>
     </section>
 
-    <!-- Integrated Work Projects Section -->
+    <!-- Integrated Projects Section -->
     <section id="projects">
       <h2>Three Integrated Work Projects</h2>
       <div class="grid">
@@ -331,7 +350,7 @@
             <span class="tag">Azure DevOps</span>
             <span class="tag">GitHub Actions</span>
             <span class="tag">Docker</span>
-            <span class="tag">OIDC / Secrets Vault</span>
+            <span class="tag">OIDC / Key Vault</span>
             <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
               Engineered end-to-end automated delivery pipelines for high-volume financial services at Hubtel Limited. Integrated static container security scanning (Trivy) and Managed Identity authentication via OIDC, reducing deployment cycles by 30% while preserving strict regulatory compliance.
             </p>
@@ -413,7 +432,7 @@
       </div>
     </section>
 
-    <!-- Experience Timeline -->
+    <!-- Professional Experience Section -->
     <section id="experience">
       <h2>Professional Experience</h2>
       <div class="timeline-item">
@@ -446,7 +465,7 @@
       </div>
     </section>
 
-    <!-- Contact & Mentorship Section -->
+    <!-- Contact Section -->
     <section id="contact">
       <h2>Connect & Mentorship</h2>
       <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
@@ -454,8 +473,8 @@
       </p>
       <div class="btn-group">
         <a href="mailto:candyesinam@gmail.com" class="btn btn-primary">Email Me</a>
-        <a href="https://linkedin.com/in/candyesinam" class="btn btn-secondary" target="_blank">LinkedIn Profile</a>
-        <a href="https://github.com/Candy-DevOps" class="btn btn-secondary" target="_blank">GitHub Profile</a>
+        <a href="https://linkedin.com/in/candyesinam" class="btn btn-secondary" target="_blank" rel="noopener">LinkedIn Profile</a>
+        <a href="https://github.com/Candy-DevOps" class="btn btn-secondary" target="_blank" rel="noopener">GitHub Profile</a>
       </div>
     </section>
   </div>
